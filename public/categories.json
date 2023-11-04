@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "name": "Biograpy",
+    "image": "https://i.ibb.co/z890pCS/1biography.png"
+  },
+  {
+    "id": 2,
+    "name": "Children",
+    "image": "https://i.ibb.co/q5ND8vX/2children.png"
+  },
+  {
+    "id": 3,
+    "name": "Fiction",
+    "image": "https://i.ibb.co/1YCkDyJ/3fiction.png"
+  },
+  {
+    "id": 4,
+    "name": "Law",
+    "image": "https://i.ibb.co/WBbDKR1/4law.png"
+  },
+  {
+    "id": 5,
+    "name": "Mystery",
+    "image": "https://i.ibb.co/FbgXHfb/5mystery.png"
+  },
+  {
+    "id": 6,
+    "name": "Novel",
+    "image": "https://i.ibb.co/L1SXxTB/6novel.png"
+  },
+  {
+    "id": 7,
+    "name": "Relationship",
+    "image": "https://i.ibb.co/hgTSF59/7relationship.png"
+  },
+  {
+    "id": 8,
+    "name": "Science",
+    "image": "https://i.ibb.co/2sBJH6v/8science.png"
+  },
+  {
+    "id": 9,
+    "name": "Travel",
+    "image": "https://i.ibb.co/3rGXDTN/9travel.png"
+  }
+]

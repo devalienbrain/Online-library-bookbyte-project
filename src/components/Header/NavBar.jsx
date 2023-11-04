@@ -26,7 +26,7 @@ const NavBar = () => {
             isPending ? "pending" : isActive ? "text-blue-600 font-bold" : ""
           }
         >
-          My Orders
+          Add Book
         </NavLink>
         <NavLink
           to="/products"
@@ -34,7 +34,15 @@ const NavBar = () => {
             isPending ? "pending" : isActive ? "text-blue-600 font-bold" : ""
           }
         >
-          Products
+          All Books
+        </NavLink>
+        <NavLink
+          to="/products"
+          className={({ isActive, isPending }) =>
+            isPending ? "pending" : isActive ? "text-blue-600 font-bold" : ""
+          }
+        >
+          Borrowed Books
         </NavLink>
       </div>
     </>
