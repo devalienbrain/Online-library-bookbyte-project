@@ -10,13 +10,17 @@ function FactsSection() {
   }, []);
   return (
     <section className="font-bold my-7">
-      <h3 className="text-3xl py-7">Some Facts</h3>
+      <h3 className="text-3xl font-bold py-7 text-red-600">SOME FACTS</h3>
 
-      <div className="flex flex-col md:flex-row justify-around">
-        <FactCard imageSrc={ribbon} number="54" title="Awards Winnings" />
-        <FactCard imageSrc={projects} number="1458" title="Project Finished" />
-        <FactCard imageSrc={customers} number="590" title="Clients Worked" />
-        <FactCard imageSrc={email} number="22758" title="Emails Sent" />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-around">
+        <FactCard imageSrc={ribbon} number="7" title="Awards Winnings" />
+        <FactCard imageSrc={projects} number="12370" title="Total Books" />
+        <FactCard
+          imageSrc={customers}
+          number="143590"
+          title="Readers Visited"
+        />
+        <FactCard imageSrc={email} number="23146" title="Email Supports" />
       </div>
     </section>
   );
@@ -29,8 +33,8 @@ function FactCard({ imageSrc, number, title }) {
       data-aos="fade"
     >
       <img className="mx-auto" src={imageSrc} alt={title} />
-      <h1 className="number">{number}</h1>
-      <p>{title}</p>
+      <h1 className="text-xl text-red-700 py-2">{number}</h1>
+      <p className="font-bold">{title}</p>
     </div>
   );
 }

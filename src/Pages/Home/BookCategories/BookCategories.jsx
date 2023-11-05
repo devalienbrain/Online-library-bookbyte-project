@@ -14,8 +14,8 @@ const BookCategories = () => {
 
   return (
     <div className="text-center my-20">
-      <h3 className="text-3xl font-black bg-gradient-to-r from-blue-500 to-red-900 bg-clip-text text-transparent border-b-2 py-5">
-        Genres
+      <h3 className="text-3xl md:text-4xl font-black bg-gradient-to-r from-blue-500 to-red-900 bg-clip-text text-transparent border-b-2 py-5">
+        Book Genres
       </h3>
       <p className="text-xs py-3"> Find Your Desired Books By Category </p>
       <div className="py-9 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">

@@ -4,8 +4,8 @@ import user3 from "../../../../public/Resources/user3.png";
 function HappyClientsSection() {
   return (
     <section className="mt-16 mb-16">
-      <h2 className="font-black text-4xl text-center pb-16">
-        Happy <span className="text-[#E76F51]">Clients says</span>
+      <h2 className="font-black text-4xl text-center pb-16 text-orange-500">
+        Happy Reader Reviews
       </h2>
       <div className="flex flex-col lg:flex-row justify-around gap-9">
         {/* Happy Client Card 1 */}
@@ -15,8 +15,9 @@ function HappyClientsSection() {
           </figure>
           <div className="card-body items-center text-center">
             <p className="text-sm font-normal">
-              Slate helps you see how many more days you need to work to reach
-              your financial goal for the month and year.
+              "Inspiring guide to transforming our life through actionable tips,
+              offering practical insights on holistic health, habits, and
+              happiness."
             </p>
             {/* Rating starts */}
             <div className="rating p-1 flex gap-2">
@@ -48,8 +49,8 @@ function HappyClientsSection() {
               />
             </div>
             {/* Rating Ends */}
-            <p className="text-[#23A6F0]">Regina Miles</p>
-            <p className="text-[#252B42]">Banker</p>
+            <p className="text-red-800">Ms. Style Icon</p>
+            <p className="text-green-700 font-bold">Lifestyle Modifier</p>
           </div>
         </div>
         {/* Happy Client Card 2 */}
@@ -59,8 +60,9 @@ function HappyClientsSection() {
           </figure>
           <div className="card-body items-center text-center">
             <p className="text-sm font-normal">
-              Slate helps you see how many more days you need to work to reach
-              your financial goal for the month and year.
+              "Thrilling and immersive journey filled with suspense, action, and
+              breathtaking landscapes. An adventure that keeps you on the edge
+              of your seat. Must visit place. Come with popcorn!"
             </p>
             {/* Rating starts */}
             <div className="rating p-1 flex gap-2">
@@ -92,8 +94,8 @@ function HappyClientsSection() {
               />
             </div>
             {/* Rating Ends */}
-            <p className="text-[#23A6F0]">Regina Miles</p>
-            <p className="text-[#252B42]">Banker</p>
+            <p className="text-red-800">Panda T. Great</p>
+            <p className="text-green-700 font-bold">Adventurer/ Explorer</p>
           </div>
         </div>
         {/* Happy Client Card 3 */}
@@ -103,8 +105,9 @@ function HappyClientsSection() {
           </figure>
           <div className="card-body items-center text-center">
             <p className="text-sm font-normal">
-              Slate helps you see how many more days you need to work to reach
-              your financial goal for the month and year.
+              "New Technology unveils the digital frontier. A compelling vision
+              of innovation's impact on our world, ushering in an era of endless
+              possibilities."
             </p>
             {/* Rating starts */}
             <div className="rating p-1 flex gap-2">
@@ -136,8 +139,8 @@ function HappyClientsSection() {
               />
             </div>
             {/* Rating Ends */}
-            <p className="text-[#23A6F0]">Regina Miles</p>
-            <p className="text-[#252B42]">Banker</p>
+            <p className="text-red-800">Mr. Alien Brain</p>
+            <p className="text-green-700 font-bold">Tech Scientist</p>
           </div>
         </div>
       </div>

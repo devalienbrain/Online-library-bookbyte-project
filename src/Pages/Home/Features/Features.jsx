@@ -4,14 +4,18 @@ function Features() {
   return (
     <section className="bg-yellow-500 my-10">
       <div className="container mx-auto py-16 flex flex-col-reverse md:flex-row justify-between items-center">
-        <div className="flex-1 text-center md:text-left pr-32">
-          <h2 className="text-3xl font-bold text-gray-700 md:text-4xl">
-            Featured products at one place
-          </h2>
-          <p className="text-lg font-semibold mb-8">
-            Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet
-            sint. Velit officia consequat duis enim velit mollit. Exercitation
-            veniam consequat sunt nostrud amet.
+        <div className="flex-1 text-left pr-32">
+          <h2 className="text-3xl font-bold md:text-4xl py-5">Meet BookByte</h2>
+          <p className="text-sm md:text-base font-semibold mb-8">
+            BookByte represents a critical pivot in the Library Technology
+            landscape. Together libraries and vendors have created an
+            environment for collaboration that allows independence and community
+            ownership of the capabilities and roadmap for technology that powers
+            the library, and the process for managing it. While the technology
+            and architecture are to be admired, perhaps the greatest strength of
+            FOLIO is the community that surrounds it. Open, collaborative,
+            modern, sophisticated … all community owned and directed. Welcome to
+            BookByte!
           </p>
         </div>
         <div className="flex-1">
