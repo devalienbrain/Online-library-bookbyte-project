@@ -15,9 +15,9 @@ const BookCategories = () => {
   return (
     <div className="text-center my-20">
       <h3 className="text-3xl md:text-4xl font-black bg-gradient-to-r from-blue-500 to-red-900 bg-clip-text text-transparent border-b-2 py-5">
-        Book Genres
+        Book Categories
       </h3>
-      <p className="text-xs py-3"> Find Your Desired Books By Category </p>
+      <p className="text-xs py-3"> Find Your Desired Books By Genres </p>
       <div className="py-9 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {categories.map((category) => (
           <BookCategoryCard

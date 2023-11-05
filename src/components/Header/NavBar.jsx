@@ -15,15 +15,15 @@ const NavBar = () => {
         <NavLink
           to="/"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-blue-600  font-bold" : ""
+            isPending ? "pending" : isActive ? "text-red-600  font-bold" : ""
           }
         >
           Home
         </NavLink>
         <NavLink
-          to="/bookings"
+          to="/addbook"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-blue-600 font-bold" : ""
+            isPending ? "pending" : isActive ? "text-red-600 font-bold" : ""
           }
         >
           Add Book
@@ -31,7 +31,7 @@ const NavBar = () => {
         <NavLink
           to="/products"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-blue-600 font-bold" : ""
+            isPending ? "pending" : isActive ? "text-red-600 font-bold" : ""
           }
         >
           All Books
@@ -39,7 +39,7 @@ const NavBar = () => {
         <NavLink
           to="/products"
           className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "text-blue-600 font-bold" : ""
+            isPending ? "pending" : isActive ? "text-red-600 font-bold" : ""
           }
         >
           Borrowed Books

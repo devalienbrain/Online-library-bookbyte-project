@@ -12,7 +12,7 @@ function FactsSection() {
     <section className="font-bold my-7">
       <h3 className="text-3xl font-bold py-7 text-red-600">SOME FACTS</h3>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 justify-around">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
         <FactCard imageSrc={ribbon} number="7" title="Awards Winnings" />
         <FactCard imageSrc={projects} number="12370" title="Total Books" />
         <FactCard
