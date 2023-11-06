@@ -2,22 +2,19 @@ import { Link, useLoaderData, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const BookDetails = () => {
-  const products = useLoaderData();
+  const books = useLoaderData();
   const { id } = useParams();
-  console.log(products, id);
+  // console.log(books, id);
   const navigate = useNavigate();
-  const targetedProduct = products.find((product) => id === product._id);
+  const targetedBook = books.find((book) => id === book._id);
 
-  const { image, name, brand, type, price, ratings, description } =
-    targetedProduct || {};
+  const { image, name, category, author, quantity, ratings, description } =
+    targetedBook || {};
 
   const handleAddProductToCart = () => {
     const newCart = {
       image,
       name,
-      brand,
-      type,
-      price,
     };
 
     console.log(newCart);
@@ -50,50 +47,34 @@ const BookDetails = () => {
   };
 
   return (
-    <div className="container mx-auto my-10 p-10 rounded">
-      <div className="text-center">
-        <h1 className="pb-10 text-4xl font-bold text-red-950">
-          PRODUCT DETAILS
-        </h1>
-        <p>product id: {id}</p>
-        <h1 className="text-3xl font-semibold p-3">{name}</h1>
-        <h2 className="text-3xl font-bold">Price: {price} $</h2>
-        <div className="p-5">
-          <button
-            onClick={handleAddProductToCart}
-            className="px-7 py-3 border border-red-600 text-red-700 hover:text-white hover:bg-red-600 rounded-lg drop-shadow-2xl text-xl font-semibold"
-          >
-            Borrow The Book
-          </button>
-        </div>
-        <div className="p-5">
-          <Link>
-            <button
-              onClick={handleAddProductToCart}
-              className="px-7 py-3 border border-red-600 text-red-700 hover:text-white hover:bg-red-600 rounded-lg drop-shadow-2xl text-xl font-semibold"
-            >
-              READ
-            </button>
-          </Link>
-        </div>
-      </div>
-      <img
-        className="w-full rounded-md"
-        src={image}
-        alt="Alternative Image border border-red-200"
-      />
-      <div className="bg-red-200 opacity-50 p-6 -mt-20 h-20">
-        <button className="text-red-950 opacity-100 px-5 py-2 flex justify-center align-middle">
-          <h1 className="opacity-100 font-black text-3xl">
-            Rating: {ratings} / 5{" "}
-          </h1>
-        </button>
-      </div>
+    <div className="container mx-auto min-h-screen flex justify-center items-center align-middle">
+      <div className="p-10 rounded">
+        <div className="card lg:card-side bg-base-100 shadow-lg">
+          <figure>
+            <img src={image} alt="book" />
+          </figure>
+          <div className="card-body text-left">
+            <h2 className="card-title">{name}</h2>
+            <h2 className="card-title">{author}</h2>
+            <p>{description}</p>
+            <h1>Quantity = {quantity} </h1>
+            <h1>Rating: {ratings} / 5 </h1>
+            <h2 className="card-title">{category}</h2>
 
-      <h3 className="mt-10 text-3xl font-bold">{name}</h3>
-      <p>Brand Name: {brand} </p>
-      <p>Car Type: {type}</p>
-      <p className="py-5">{description}</p>
+            <div className="flex gap-1">
+              <button
+                onClick={handleAddProductToCart}
+                className="px-4 py-1 border border-red-600 text-red-700  hover:text-red-600 rounded-lg drop-shadow-2xl text-sm font-semibold"
+              >
+                Borrow The Book
+              </button>
+              <button className="px-4 py-1 border bg-red-600 text-white hover:bg-red-700 rounded-lg drop-shadow-2xl text-sm font-semibold">
+                READ
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

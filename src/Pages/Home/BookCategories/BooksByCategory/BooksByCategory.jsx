@@ -12,13 +12,14 @@ const BooksByCategory = () => {
   return (
     <>
       {filteredBooksByCategory.length === 0 ? (
-        <div className="container mx-auto flex justify-center items-center min-h-screen bg-green-800 text-white font-bold text-3xl my-10">
-          <div>
-            <p>
-              Oops.. ! No Book Available Of This Category:{" "}
-              <span className="text-red-800">{name} </span>!
-            </p>
-            <p>We will add soon.</p>
+        <div className="min-h-screen flex justify-center items-center text-left">
+          <div className="flex flex-col space-y-11">
+            <h2 className="text-2xl md:text-5xl font-black text-red-700">
+              No Book Available On {name}
+            </h2>
+            <h1 className="uppercase text-sm font-semibold py-7 bg-gradient-to-r from-lime-400 to-green-700 bg-clip-text text-transparent">
+              Books On This Category Will Add Soon. Please Visit Later.
+            </h1>
           </div>
         </div>
       ) : (
