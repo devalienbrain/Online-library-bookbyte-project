@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from "react";
 
 // import axios from "axios";
 import BorrowedBookCard from "./BorrowedBookCard";
+import Swal from "sweetalert2";
 
 const BooksBorrowed = () => {
   // const { user } = useContext(AuthContext);
@@ -23,6 +24,38 @@ const BooksBorrowed = () => {
     //   setBookings(res.data);
     // });
   }, []);
+  const handleReturnABook = (id) => {
+    Swal.fire({
+      title: "Want To Return The Book, Sure?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Return!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/borrowedBooks/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Done!",
+                text: "The Book Has Been Returned!",
+                icon: "success",
+                confirmButtonText: "Close",
+              });
+              const remaining = borrowedBooks.filter(
+                (borrowedBook) => borrowedBook._id !== id
+              );
+              setBorrowedBooks(remaining);
+            }
+          });
+      }
+    });
+  };
 
   return (
     <>
@@ -34,6 +67,7 @@ const BooksBorrowed = () => {
           <BorrowedBookCard
             key={borrowedBook._id}
             borrowedBook={borrowedBook}
+            handleReturnABook={handleReturnABook}
           ></BorrowedBookCard>
         ))}
       </div>

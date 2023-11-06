@@ -1,5 +1,6 @@
-const BorrowedBookCard = ({ borrowedBook }) => {
+const BorrowedBookCard = ({ borrowedBook, handleReturnABook }) => {
   const {
+    _id,
     image,
     bookName,
     category,
@@ -35,7 +36,10 @@ const BorrowedBookCard = ({ borrowedBook }) => {
           </p>
         </div>
         <div>
-          <button className="py-3 px-4 rounded-lg shadow-2xl text-xs text-white bg-gradient-to-r from-lime-400 to-green-700 hover:bg-gradient-to-tr">
+          <button
+            onClick={() => handleReturnABook(_id)}
+            className="py-3 px-4 rounded-lg shadow-2xl text-xs text-white bg-gradient-to-r from-lime-400 to-green-700 hover:bg-gradient-to-tr"
+          >
             RETURN THE BOOK
           </button>
         </div>

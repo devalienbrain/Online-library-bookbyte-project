@@ -52,7 +52,17 @@ const BookDetails = () => {
       body: JSON.stringify(bookBorrowInfo),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            title: "Congrats!",
+            text: "You Have Borrowed The Book Successfully",
+            icon: "success",
+            confirmButtonText: "Close",
+          });
+        }
+      });
   };
 
   return (
