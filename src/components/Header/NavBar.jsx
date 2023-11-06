@@ -37,7 +37,7 @@ const NavBar = () => {
           All Books
         </NavLink>
         <NavLink
-          to="/allbooks"
+          to="/borrowedbooks"
           className={({ isActive, isPending }) =>
             isPending ? "pending" : isActive ? "text-red-600 font-bold" : ""
           }

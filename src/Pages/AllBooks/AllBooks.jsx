@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const AllBooks = () => {
   const countBooks = useLoaderData();
@@ -38,7 +38,7 @@ const AllBooks = () => {
       .then((res) => res.json())
       .then((data) => {
         setBooks(data);
-        // console.log(books);
+        console.log(books);
       });
   }, [currentPage, itemsPerPage]);
 
@@ -64,9 +64,9 @@ const AllBooks = () => {
           {/* LOAD AND SHOW BOOKS SECTION STARTS */}
           <div className="min-h-screen">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {books.map(({ id, image, name, author, category, ratings }) => {
+              {books.map(({ _id, image, name, author, category, ratings }) => {
                 return (
-                  <div key={id} className="card w-96 bg-base-100">
+                  <div className="card w-96 bg-base-100">
                     <figure>
                       <img src={image} alt="Book" />
                     </figure>
@@ -76,9 +76,11 @@ const AllBooks = () => {
                       <p>{category}</p>
                       <p>{ratings}</p>
                       <div className="card-actions justify-start">
-                        <button className="py-3 px-7 text-white rounded-xl transition-all duration-500 bg-gradient-to-br from-pink-500 via-red-500 to-red-900  hover:bg-gradient-to-tr">
-                          Update
-                        </button>
+                        <Link to={`/update/${_id}`}>
+                          <button className="py-3 px-7 text-white rounded-xl transition-all duration-500 bg-gradient-to-br from-pink-500 via-red-500 to-red-900  hover:bg-gradient-to-tr">
+                            Update
+                          </button>
+                        </Link>
                       </div>
                     </div>
                   </div>

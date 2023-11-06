@@ -10,7 +10,7 @@ function FactsSection() {
   }, []);
   return (
     <section className="font-bold my-7">
-      <h3 className="text-3xl font-bold py-7 text-red-600">
+      <h3 className="text-3xl font-bold py-7 bg-gradient-to-r from-lime-400 to-green-700 bg-clip-text text-transparent">
         SOME FACTS WE LOVE TO SHARE
       </h3>
 
