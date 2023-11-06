@@ -1,0 +1,249 @@
+[
+  {
+    "data": [
+      {
+        "image": "https://example.com/image1.jpg",
+        "name": "Book 1",
+        "quantity": 10,
+        "author": "Author 1",
+        "category": "Biography",
+        "description": "A fascinating life story.",
+        "ratings": 4.5
+      },
+      {
+        "image": "https://example.com/image2.jpg",
+        "name": "Children's Book 1",
+        "quantity": 15,
+        "author": "Children's Author 1",
+        "category": "Children",
+        "description": "An enchanting tale for kids.",
+        "ratings": 4.2
+      },
+      {
+        "image": "https://example.com/image3.jpg",
+        "name": "Fiction Book 1",
+        "quantity": 7,
+        "author": "Fiction Author 1",
+        "category": "Fiction",
+        "description": "An exciting adventure in a fictional world.",
+        "ratings": 4.8
+      },
+      {
+        "image": "https://example.com/image4.jpg",
+        "name": "Law Book 1",
+        "quantity": 12,
+        "author": "Legal Expert 1",
+        "category": "Law",
+        "description": "A comprehensive guide to legal matters.",
+        "ratings": 4.0
+      },
+      {
+        "image": "https://example.com/image5.jpg",
+        "name": "Mystery Book 1",
+        "quantity": 8,
+        "author": "Mystery Writer 1",
+        "category": "Mystery",
+        "description": "Solve the puzzle in this thrilling mystery.",
+        "ratings": 4.3
+      },
+      {
+        "image": "https://example.com/image6.jpg",
+        "name": "Novel 1",
+        "quantity": 6,
+        "author": "Novelist 1",
+        "category": "Novel",
+        "description": "A story of love, adventure, and self-discovery.",
+        "ratings": 4.7
+      },
+      {
+        "image": "https://example.com/image7.jpg",
+        "name": "Relationship Book 1",
+        "quantity": 9,
+        "author": "Relationship Expert 1",
+        "category": "Relationship",
+        "description": "Improve your relationships and find happiness.",
+        "ratings": 4.6
+      },
+      {
+        "image": "https://example.com/image8.jpg",
+        "name": "Science Book 1",
+        "quantity": 11,
+        "author": "Scientist 1",
+        "category": "Science",
+        "description": "Explore the wonders of the universe.",
+        "ratings": 4.9
+      },
+      {
+        "image": "https://example.com/image9.jpg",
+        "name": "Travel Book 1",
+        "quantity": 14,
+        "author": "Traveler 1",
+        "category": "Travel",
+        "description": "Discover the world's hidden gems.",
+        "ratings": 4.4
+      },
+      {
+        "image": "https://example.com/image10.jpg",
+        "name": "Book 2",
+        "quantity": 8,
+        "author": "Author 2",
+        "category": "Biography",
+        "description": "An inspiring life story.",
+        "ratings": 4.1
+      },
+      {
+        "image": "https://example.com/image11.jpg",
+        "name": "Children's Book 2",
+        "quantity": 16,
+        "author": "Children's Author 2",
+        "category": "Children",
+        "description": "A magical journey for young readers.",
+        "ratings": 4.5
+      },
+      {
+        "image": "https://example.com/image12.jpg",
+        "name": "Fiction Book 2",
+        "quantity": 5,
+        "author": "Fiction Author 2",
+        "category": "Fiction",
+        "description": "A gripping tale of imagination.",
+        "ratings": 4.2
+      },
+      {
+        "image": "https://example.com/image13.jpg",
+        "name": "Law Book 2",
+        "quantity": 13,
+        "author": "Legal Expert 2",
+        "category": "Law",
+        "description": "Understanding the legal world.",
+        "ratings": 4.3
+      },
+      {
+        "image": "https://example.com/image14.jpg",
+        "name": "Mystery Book 2",
+        "quantity": 10,
+        "author": "Mystery Writer 2",
+        "category": "Mystery",
+        "description": "A mind-bending mystery to solve.",
+        "ratings": 4.7
+      },
+      {
+        "image": "https://example.com/image15.jpg",
+        "name": "Novel 2",
+        "quantity": 7,
+        "author": "Novelist 2",
+        "category": "Novel",
+        "description": "A love story that transcends time.",
+        "ratings": 4.8
+      },
+      {
+        "image": "https://example.com/image16.jpg",
+        "name": "Relationship Book 2",
+        "quantity": 12,
+        "author": "Relationship Expert 2",
+        "category": "Relationship",
+        "description": "Build stronger connections with others.",
+        "ratings": 4.6
+      },
+      {
+        "image": "https://example.com/image17.jpg",
+        "name": "Science Book 2",
+        "quantity": 9,
+        "author": "Scientist 2",
+        "category": "Science",
+        "description": "Unravel the secrets of the natural world.",
+        "ratings": 4.9
+      },
+      {
+        "image": "https://example.com/image18.jpg",
+        "name": "Travel Book 2",
+        "quantity": 11,
+        "author": "Traveler 2",
+        "category": "Travel",
+        "description": "Embark on an epic journey around the globe.",
+        "ratings": 4.4
+      },
+      {
+        "image": "https://example.com/image19.jpg",
+        "name": "Book 3",
+        "quantity": 11,
+        "author": "Author 3",
+        "category": "Biography",
+        "description": "A tale of determination and success.",
+        "ratings": 4.0
+      },
+      {
+        "image": "https://example.com/image20.jpg",
+        "name": "Children's Book 3",
+        "quantity": 14,
+        "author": "Children's Author 3",
+        "category": "Children",
+        "description": "Adventures with colorful characters.",
+        "ratings": 4.2
+      },
+      {
+        "image": "https://example.com/image21.jpg",
+        "name": "Fiction Book 3",
+        "quantity": 6,
+        "author": "Fiction Author 3",
+        "category": "Fiction",
+        "description": "Escape into a world of fantasy.",
+        "ratings": 4.7
+      },
+      {
+        "image": "https://example.com/image22.jpg",
+        "name": "Law Book 3",
+        "quantity": 9,
+        "author": "Legal Expert 3",
+        "category": "Law",
+        "description": "Legal principles made easy.",
+        "ratings": 4.1
+      },
+      {
+        "image": "https://example.com/image23.jpg",
+        "name": "Mystery Book 3",
+        "quantity": 13,
+        "author": "Mystery Writer 3",
+        "category": "Mystery",
+        "description": "A journey into the unknown.",
+        "ratings": 4.5
+      },
+      {
+        "image": "https://example.com/image24.jpg",
+        "name": "Novel 3",
+        "quantity": 8,
+        "author": "Novelist 3",
+        "category": "Novel",
+        "description": "Love and adventure entwined.",
+        "ratings": 4.4
+      },
+      {
+        "image": "https://example.com/image25.jpg",
+        "name": "Relationship Book 3",
+        "quantity": 10,
+        "author": "Relationship Expert 3",
+        "category": "Relationship",
+        "description": "Nurturing bonds that last a lifetime.",
+        "ratings": 4.3
+      },
+      {
+        "image": "https://example.com/image26.jpg",
+        "name": "Science Book 3",
+        "quantity": 15,
+        "author": "Scientist 3",
+        "category": "Science",
+        "description": "The wonders of the scientific world.",
+        "ratings": 4.8
+      },
+      {
+        "image": "https://example.com/image27.jpg",
+        "name": "Travel Book 3",
+        "quantity": 7,
+        "author": "Traveler 3",
+        "category": "Travel",
+        "description": "Exploring new horizons and cultures.",
+        "ratings": 4.6
+      }
+    ]
+  }
+]
