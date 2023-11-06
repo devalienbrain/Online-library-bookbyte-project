@@ -1,74 +1,71 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const UpdateProduct = () => {
-  const targetProductToUpdate = useLoaderData();
-  // console.log(targetProductToUpdate);
-  const { _id, image, name, brand, type, price, ratings, description } =
-    targetProductToUpdate;
+const UpdateTheBook = () => {
+  const targetBookToUpdate = useLoaderData();
+  console.log(targetBookToUpdate);
+  const { _id, image, name, category, author, quantity, description, ratings } =
+    targetBookToUpdate;
 
   const navigate = useNavigate();
 
-  const handleUpdateTheProduct = (event) => {
+  const handleUpdateTheBook = (event) => {
     event.preventDefault();
 
     const form = event.target;
 
     const image = form.image.value;
     const name = form.name.value;
-    const brand = form.brand.value;
-    const type = form.type.value;
-    const price = form.price.value;
+    const category = form.category.value;
+    const author = form.author.value;
+    const quantity = form.quantity.value;
     const description = form.description.value;
     const ratings = form.ratings.value;
 
-    const updatedProduct = {
+    const updatedBook = {
       image,
       name,
-      brand,
-      type,
-      price,
+      category,
+      author,
+      quantity,
       description,
       ratings,
     };
 
-    console.log(updatedProduct);
+    console.log(updatedBook);
 
     // send updated data to the server
-    fetch(
-      `https://automotive-brand-shop-server-5xa3jm979-alien-brains-projects.vercel.app/products/${_id}`,
-      {
-        method: "PUT",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(updatedProduct),
-      }
-    )
+    fetch(`http://localhost:5000/allBooks/${_id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updatedBook),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Good Job!",
-            text: "The Product Updated Successfully",
+            text: "The Book Updated Successfully",
             icon: "success",
             confirmButtonText: "Done",
           });
-          navigate(`/brandedCars/${brand}`);
+          // navigate(`/brandedCars/${brand}`);
         }
       });
   };
 
   return (
     <div className="p-5 w-full lg:w-1/2 mx-auto">
-      <h2 className="text-3xl text-green-900 text-center font-black">
+      <h2 className="text-3xl bg-gradient-to-r from-green-500 via-green-700 to-lime-500 bg-clip-text text-transparent text-center font-black">
         UPDATE THE PRODUCT
       </h2>
       <p className="text-center text-red-600">
         <small>product id: {_id}</small>
       </p>
-      <form onSubmit={handleUpdateTheProduct}>
+      <form onSubmit={handleUpdateTheBook}>
         {/* form */}
         <div className="mb-8">
           {/* 1_image field */}
@@ -102,13 +99,13 @@ const UpdateProduct = () => {
           {/* 3_brand name field */}
           <div className="form-control w-full">
             <label className="label">
-              <span className="label-text text-lg font-bold">Brand Name</span>
+              <span className="label-text text-lg font-bold">Category</span>
             </label>
             <label className="input-group">
               <input
                 type="text"
-                name="brand"
-                defaultValue={brand}
+                name="category"
+                defaultValue={category}
                 className="input input-bordered rounded-xl drop-shadow-lg w-full"
               />
             </label>
@@ -116,13 +113,13 @@ const UpdateProduct = () => {
           {/* 4_type field */}
           <div className="form-control w-full">
             <label className="label">
-              <span className="label-text text-lg font-bold">Type</span>
+              <span className="label-text text-lg font-bold">Author</span>
             </label>
             <label className="input-group">
               <input
                 type="text"
-                name="type"
-                defaultValue={type}
+                name="author"
+                defaultValue={author}
                 className="input input-bordered rounded-xl drop-shadow-lg w-full"
               />
             </label>
@@ -130,13 +127,13 @@ const UpdateProduct = () => {
           {/* 5_price field */}
           <div className="form-control w-full">
             <label className="label">
-              <span className="label-text text-lg font-bold">Price</span>
+              <span className="label-text text-lg font-bold">Quantity</span>
             </label>
             <label className="input-group">
               <input
                 type="number"
-                name="price"
-                defaultValue={price}
+                name="quantity"
+                defaultValue={quantity}
                 className="input input-bordered rounded-xl drop-shadow-lg w-full"
               />
             </label>
@@ -176,7 +173,7 @@ const UpdateProduct = () => {
             <input
               type="submit"
               value="UPDATE"
-              className="px-8 py-3 text-white border bg-green-800 hover:bg-green-700 rounded-xl drop-shadow-2xl font-bold text-xl"
+              className="px-8 py-3 text-red-500 bg-gradient-to-r from-green-500 via-lime-500 to-green-700 hover:bg-gradient-to-b rounded-xl drop-shadow-2xl font-bold text-xl"
             />
           </div>
         </div>
@@ -185,4 +182,4 @@ const UpdateProduct = () => {
   );
 };
 
-export default UpdateProduct;
+export default UpdateTheBook;
