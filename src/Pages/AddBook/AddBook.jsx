@@ -8,35 +8,32 @@ const AddBook = () => {
 
     const image = form.image.value;
     const name = form.name.value;
-    const brand = form.brand.value;
-    const type = form.type.value;
-    const price = form.price.value;
+    const category = form.category.value;
+    const author = form.author.value;
+    const quantity = form.quantity.value;
     const description = form.description.value;
     const ratings = form.ratings.value;
 
-    const newProduct = {
+    const newBook = {
       image,
       name,
-      brand,
-      type,
-      price,
+      category,
+      author,
+      quantity,
       description,
       ratings,
     };
 
-    console.log(newProduct);
+    console.log(newBook);
 
     // send data to the server
-    fetch(
-      "https://automotive-brand-shop-server-5xa3jm979-alien-brains-projects.vercel.app/products",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(newProduct),
-      }
-    )
+    fetch("http://localhost:5000/allBooks", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newBook),
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -96,7 +93,7 @@ const AddBook = () => {
             <label className="input-group">
               <input
                 type="text"
-                name="brand"
+                name="category"
                 placeholder="book category"
                 className="input input-bordered rounded-xl drop-shadow-lg w-full"
               />
@@ -110,7 +107,7 @@ const AddBook = () => {
             <label className="input-group">
               <input
                 type="text"
-                name="type"
+                name="author"
                 placeholder="author of the book"
                 className="input input-bordered rounded-xl drop-shadow-lg w-full"
               />
@@ -124,7 +121,7 @@ const AddBook = () => {
             <label className="input-group">
               <input
                 type="number"
-                name="price"
+                name="quantity"
                 placeholder="book quantity"
                 className="input input-bordered rounded-xl drop-shadow-lg w-full"
               />
