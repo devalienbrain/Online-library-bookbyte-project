@@ -60,10 +60,10 @@ const UpdateTheBook = () => {
   return (
     <div className="p-5 w-full lg:w-1/2 mx-auto">
       <h2 className="text-3xl bg-gradient-to-r from-green-500 via-green-700 to-lime-500 bg-clip-text text-transparent text-center font-black">
-        UPDATE THE PRODUCT
+        UPDATE THE BOOK
       </h2>
-      <p className="text-center text-red-600">
-        <small>product id: {_id}</small>
+      <p className="text-center italic text-xs text-red-600">
+        <small>(product id: {_id})</small>
       </p>
       <form onSubmit={handleUpdateTheBook}>
         {/* form */}
