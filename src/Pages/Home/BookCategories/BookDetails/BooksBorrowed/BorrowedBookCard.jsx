@@ -1,19 +1,43 @@
-const BorrowedBookCard = ({ booking }) => {
-  const { img, service_title, price } = booking; // Add curly braces for destructuring
+const BorrowedBookCard = ({ borrowedBook }) => {
+  const {
+    image,
+    bookName,
+    category,
+    userName,
+    userEmail,
+    returnDate,
+    borrowedDate,
+  } = borrowedBook;
   return (
     <>
-      <div className="flex gap-12 items-center p-5 border border-black w-1/2 mx-auto rounded-xl hover:shadow-xl">
+      <div className="flex flex-col md:flex-row gap-12 items-center p-5 border border-black mx-auto rounded-xl hover:text-red-700">
         <div>
-          <button>X</button>
+          <img className="w-36 rounded-xl" src={image} />
         </div>
         <div>
-          <img className="w-32 rounded-xl" src={img} />
+          <p>
+            Book Name: <br /> {bookName}
+          </p>
         </div>
         <div>
-          <p>{service_title}</p>
+          <p>
+            Book Category: <br /> {category}
+          </p>
         </div>
         <div>
-          <p>{price}</p>
+          <p>
+            Borrowed On: <br /> {borrowedDate}
+          </p>
+        </div>
+        <div>
+          <p>
+            Return By: <br /> {returnDate}
+          </p>
+        </div>
+        <div>
+          <button className="py-3 px-4 rounded-lg shadow-2xl text-xs text-white bg-gradient-to-r from-lime-400 to-green-700 hover:bg-gradient-to-tr">
+            RETURN THE BOOK
+          </button>
         </div>
       </div>
     </>
