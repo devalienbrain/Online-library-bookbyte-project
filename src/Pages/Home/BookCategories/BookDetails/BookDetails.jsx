@@ -72,22 +72,22 @@ const BookDetails = () => {
           <figure>
             <img src={image} alt="book" />
           </figure>
-          <div className="card-body text-left">
-            <h2 className="card-title">{name}</h2>
-            <h2 className="card-title">{author}</h2>
-            <p>{description}</p>
-            <h1>Quantity = {quantity} </h1>
-            <h1>Rating: {ratings} / 5 </h1>
+          <div className="card-body text-left italic">
+            <h2 className="card-title">Book name: {name}</h2>
+            <h2 className="card-title">Author name: {author}</h2>
+            <p>About the book: <br /> {description}</p>
+            <h1>Quantity of the book = {quantity} </h1>
+            <h1>Ratings: {ratings} / 5 </h1>
             <h2 className="card-title">{category}</h2>
 
             <div className="flex gap-1">
               <button
                 onClick={openModal}
-                className="px-4 py-1 border border-red-600 text-red-700  hover:text-red-600 rounded-lg drop-shadow-2xl text-sm font-semibold"
+                className="px-4 py-2 border border-red-600 text-red-700  hover:text-red-600 rounded-lg drop-shadow-2xl text-sm font-semibold italic"
               >
                 Borrow The Book
               </button>
-              <button className="px-4 py-1 border border-red-500 bg-red-600 text-white hover:bg-red-700 rounded-lg drop-shadow-2xl text-sm font-semibold">
+              <button className="px-4 py-1 border border-red-500 bg-red-600 text-white hover:bg-red-700 rounded-lg drop-shadow-2xl text-sm font-semibold italic">
                 READ
               </button>
             </div>
@@ -126,7 +126,7 @@ const BookDetails = () => {
                   placeholder="email"
                   className="input input-bordered text-blue-600"
                   required
-                  // readOnly
+                // readOnly
                 />
                 <label
                   htmlFor="date"

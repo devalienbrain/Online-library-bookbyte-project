@@ -26,7 +26,7 @@ const BooksByCategory = () => {
         <div>
           <div className="text-center my-10  container mx-auto">
             <h3 className="text-4xl font-black text-green-950">
-              Available Books On Category: {name}
+              Available Books On "{name}" Category
             </h3>
             <p>Total Books = {filteredBooksByCategory.length}</p>
             <div className="py-9 grid grid-cols-1 md:grid-cols-2 gap-10">
