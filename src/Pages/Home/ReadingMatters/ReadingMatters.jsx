@@ -3,7 +3,7 @@ import graphics from "../../../../public/Resources/graphics.png";
 const ReadingMatters = () => {
   return (
     <>
-      <div className="bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-xl shadow-xl transition-all duration-500 hover:bg-right-bottom">
+      <div className="bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-xl shadow-xl transition-all duration-500 hover:bg-right-bottom relative">
         <div className="flex flex-col-reverse md:flex-row gap-10">
           <div className="flex-1">
             <img src={brain} />
@@ -13,7 +13,7 @@ const ReadingMatters = () => {
               </p>
             </div>
           </div>
-          <div className="flex-1">
+          <div className="flex-1 top-0 right-0 absolute">
             <img src={graphics} />
           </div>
         </div>

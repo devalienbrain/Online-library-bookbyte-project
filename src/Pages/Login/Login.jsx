@@ -81,10 +81,10 @@ const Login = () => {
               onSubmit={handleLogin}
               className="flex flex-col gap-4 px-5 py-5"
             >
-              <div className="mx-auto font-semibold text-center w-full border-black text-black rounded-lg">
+              <div className="mx-auto font-semibold text-center w-full text-black rounded-lg">
                 <button
                   onClick={handleGithubLogin}
-                  className="p-3 border font-bold w-full rounded-lg hover:bg-white bg-black hover:text-black text-white flex justify-center items-center gap-3"
+                  className="p-3 border font-bold w-full rounded-lg hover:text-white bg-black text-slate-200 flex justify-center items-center gap-3"
                 >
                   <FaGithub></FaGithub>
                   Github
@@ -93,7 +93,7 @@ const Login = () => {
               <div className="mx-auto font-semibold text-center w-full border-blue-900 text-blue-950 rounded-lg">
                 <button
                   onClick={handleGoogleLogin}
-                  className="p-3 border font-bold w-full rounded-lg border-white bg-blue-900 hover:bg-white text-white hover:text-blue-900 flex justify-center items-center gap-3"
+                  className="p-3 border font-bold w-full rounded-lg bg-blue-900 hover:bg-blue-800 text-white flex justify-center items-center gap-3"
                 >
                   <FcGoogle></FcGoogle>
                   Google
