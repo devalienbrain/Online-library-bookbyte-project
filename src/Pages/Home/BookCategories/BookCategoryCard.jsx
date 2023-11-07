@@ -3,7 +3,7 @@ import arrow from "../../../../public/Resources/arrow-forward.svg";
 import { Link } from "react-router-dom";
 
 const BookCategoryCard = ({ category }) => {
-  console.log(category);
+  // console.log(category);
 
   const { name, image } = category || {};
 

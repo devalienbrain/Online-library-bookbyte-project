@@ -1,8 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../../../Provider/AuthProvider";
 
-// import bg from "../../../public/Resources/cool-background.png";
-
 // import axios from "axios";
 import BorrowedBookCard from "./BorrowedBookCard";
 import Swal from "sweetalert2";
@@ -12,9 +10,6 @@ const BooksBorrowed = () => {
   // console.log(user?.email);
 
   const [borrowedBooks, setBorrowedBooks] = useState([]);
-
-  // const url = `http://localhost:3000/buyers?email=${user?.email}`;
-  // const url = `http://localhost:3000/buyers?email=man@manush.com`;
 
   useEffect(() => {
     fetch(`http://localhost:5000/borrowedBooks?email=${user?.email}`)

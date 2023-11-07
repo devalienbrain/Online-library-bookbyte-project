@@ -1,18 +1,36 @@
-import { Link, useLoaderData, useNavigate, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
-import React, { useContext, useState } from "react"; // Import React and useState
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../../Provider/AuthProvider";
 
 const BookDetails = () => {
   const { user } = useContext(AuthContext);
   const books = useLoaderData();
   const { id } = useParams();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const targetedBook = books.find((book) => id === book._id);
 
   const { image, name, category, author, quantity, ratings, description } =
     targetedBook || {};
 
+  // Handle Book Quantity
+  const [changedQuantity, setChangedQuantity] = useState(parseInt(quantity));
+  console.log(changedQuantity, typeof changedQuantity);
+  const handleBookQuatityCount = () => {
+    const newQuantity = changedQuantity - 1;
+    setChangedQuantity(newQuantity);
+    fetch(`http://localhost:5000/allBooks/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ quantity: changedQuantity }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
   // Handle the modal
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => {
@@ -55,6 +73,7 @@ const BookDetails = () => {
       .then((data) => {
         console.log(data);
         if (data.insertedId) {
+          handleBookQuatityCount();
           Swal.fire({
             title: "Congrats!",
             text: "You Have Borrowed The Book Successfully",
@@ -75,7 +94,9 @@ const BookDetails = () => {
           <div className="card-body text-left italic">
             <h2 className="card-title">Book name: {name}</h2>
             <h2 className="card-title">Author name: {author}</h2>
-            <p>About the book: <br /> {description}</p>
+            <p>
+              About the book: <br /> {description}
+            </p>
             <h1>Quantity of the book = {quantity} </h1>
             <h1>Ratings: {ratings} / 5 </h1>
             <h2 className="card-title">{category}</h2>
@@ -126,7 +147,7 @@ const BookDetails = () => {
                   placeholder="email"
                   className="input input-bordered text-blue-600"
                   required
-                // readOnly
+                  // readOnly
                 />
                 <label
                   htmlFor="date"
@@ -141,7 +162,10 @@ const BookDetails = () => {
                   required
                 />
                 <div className="form-control mt-6">
-                  <button className="btn bg-green-800 hover:bg-green-700 text-white">
+                  <button
+                    // onSubmit={handleBookQuatityCount}
+                    className="btn bg-green-800 hover:bg-green-700 text-white"
+                  >
                     submit
                   </button>
                 </div>
