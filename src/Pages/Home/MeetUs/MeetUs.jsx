@@ -12,25 +12,25 @@ function MeetUs() {
           <h2 className="text-3xl md:text-4xl font-black bg-gradient-to-r from-blue-500 to-red-900 bg-clip-text text-transparent border-b-2 py-5">
             5 REASONS WHY VISIT OUR LIBRARY
           </h2>
-          <p className="text-lg text-yellow-600 hover:text-red-500 font-semibold my-8">
+          <p className="text-lg text-yellow-600  font-semibold my-8">
             <MdOutlineBorderColor></MdOutlineBorderColor>
             Access to a Wide Range of Books
           </p>
-          <p className="text-lg text-yellow-600 hover:text-red-500 font-semibold mb-9">
+          <p className="text-lg text-yellow-600  font-semibold mb-9">
             <MdOutlineBorderColor></MdOutlineBorderColor>A Quiet and Peaceful
             Environment
           </p>
-          <p className="text-lg text-yellow-600 hover:text-red-500 font-semibold mb-9">
+          <p className="text-lg text-yellow-600  font-semibold mb-9">
             <MdOutlineBorderColor></MdOutlineBorderColor>
             Free Resource for All Ages
           </p>
-          <p className="text-lg text-yellow-600 hover:text-red-500 font-semibold mb-9">
+          <p className="text-lg text-yellow-600  font-semibold mb-9">
             <MdOutlineBorderColor></MdOutlineBorderColor>
-            Expert Assistance And Discussions
+            Expert Assistance And Discussions Together
           </p>
-          <p className="text-lg text-yellow-600 hover:text-red-500 font-semibold mb-9">
+          <p className="text-lg text-yellow-600  font-semibold mb-9">
             <MdOutlineBorderColor></MdOutlineBorderColor>
-            Community and Cultural Events
+            Community Meetups and Cultural Events
           </p>
         </div>
       </div>

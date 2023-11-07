@@ -8,8 +8,11 @@ const ReadingMatters = () => {
           <div className="flex-1">
             <img src={brain} />
             <div>
-              <p className="text-3xl md:text-4xl uppercase font-black bg-gradient-to-r from-lime-400 to-green-700 bg-clip-text text-transparent pb-10">
+              <p className="text-3xl md:text-4xl uppercase font-black bg-gradient-to-r from-lime-400 to-green-700 bg-clip-text text-transparent pb-3">
                 READING MATTERS
+              </p>
+              <p className="text-xs bg-gradient-to-r from-pink-800 via-purple-900 to-indigo-700 bg-clip-text text-transparent pb-10">
+                And bookbyte is the best place for you to read
               </p>
             </div>
           </div>

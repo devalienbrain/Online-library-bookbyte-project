@@ -57,6 +57,29 @@ const AddBook = () => {
       <form onSubmit={handleAddAProduct}>
         {/* form */}
         <div className="mb-8">
+          {/* 3_category field */}
+          <div className="form-control w-full">
+            <label for="category" className="label">
+              <span className="label-text text-lg font-bold">
+                Book Category
+              </span>
+            </label>
+            <select
+              id="category"
+              name="category"
+              className="input input-bordered  rounded-md drop-shadow-lg w-full"
+            >
+              <option value="Biography">Biography</option>
+              <option value="Children">Children</option>
+              <option value="Law">Law</option>
+              <option value="Relationship">Relationship</option>
+              <option value="Mystery">Mystery</option>
+              <option value="Fiction">Fiction</option>
+              <option value="Novel">Novel</option>
+              <option value="Science">Science</option>
+              <option value="Travel">Travel</option>
+            </select>
+          </div>
           {/* 1_image field */}
           <div className="form-control w-full">
             <label className="label">
@@ -85,20 +108,7 @@ const AddBook = () => {
               />
             </label>
           </div>
-          {/* 3_brand name field */}
-          <div className="form-control w-full">
-            <label className="label">
-              <span className="label-text text-lg font-bold">Category</span>
-            </label>
-            <label className="input-group">
-              <input
-                type="text"
-                name="category"
-                placeholder="book category"
-                className="input input-bordered rounded-xl drop-shadow-lg w-full"
-              />
-            </label>
-          </div>
+
           {/* 4_type field */}
           <div className="form-control w-full">
             <label className="label">
