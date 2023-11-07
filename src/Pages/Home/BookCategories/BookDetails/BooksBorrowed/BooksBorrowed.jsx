@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-// import { AuthContext } from "../../Provider/AuthProvider";
+import { AuthContext } from "../../../../../Provider/AuthProvider";
 
 // import bg from "../../../public/Resources/cool-background.png";
 
@@ -8,7 +8,7 @@ import BorrowedBookCard from "./BorrowedBookCard";
 import Swal from "sweetalert2";
 
 const BooksBorrowed = () => {
-  // const { user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   // console.log(user?.email);
 
   const [borrowedBooks, setBorrowedBooks] = useState([]);
@@ -17,7 +17,7 @@ const BooksBorrowed = () => {
   // const url = `http://localhost:3000/buyers?email=man@manush.com`;
 
   useEffect(() => {
-    fetch("http://localhost:5000/borrowedBooks")
+    fetch(`http://localhost:5000/borrowedBooks?email=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setBorrowedBooks(data));
     // axios.get(url, { withCredentials: true }).then((res) => {
