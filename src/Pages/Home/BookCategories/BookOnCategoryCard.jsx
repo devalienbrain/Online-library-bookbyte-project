@@ -1,4 +1,8 @@
 import { Link } from "react-router-dom";
+import UserRating from "../../../components/Ratings/Ratings";
+import Rating from "react-rating";
+import 'font-awesome/css/font-awesome.min.css';
+
 
 const BookOnCategoryCard = ({ filteredBookOnCategory }) => {
   const { _id, image, name, author, category, ratings } =
@@ -14,6 +18,15 @@ const BookOnCategoryCard = ({ filteredBookOnCategory }) => {
         <p>Author: <span className="font-bold">{author}</span> </p>
         <p className="font-bold bg-gradient-to-r from-blue-500 to-red-900 bg-clip-text text-transparent">{category}</p>
         <p>{ratings}</p>
+        {/* <UserRating></UserRating> */}
+        <Rating
+          initialRating={3}
+          emptySymbol={<i className="fa fa-star-o fa-2x" />}
+          fullSymbol={<i className="fa fa-star fa-2x" />}
+          readonly
+          className="text-xs text-red-400"
+        />
+
         <div className="card-actions justify-start">
           <Link to={`/details/${_id}`}>
             <button className="py-3 px-7 text-white rounded-xl transition-all duration-500 bg-gradient-to-br from-blue-500 to-red-900  hover:bg-gradient-to-tr">
