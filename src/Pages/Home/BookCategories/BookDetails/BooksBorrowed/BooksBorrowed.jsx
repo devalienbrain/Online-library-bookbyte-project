@@ -60,9 +60,9 @@ const BooksBorrowed = () => {
         )
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            // console.log(data);
             if (data.deletedCount > 0) {
-              handleCountIncreased(originalId);
+              // handleCountIncreased(originalId);
               Swal.fire({
                 title: "Done!",
                 text: "The Book Has Been Returned!",

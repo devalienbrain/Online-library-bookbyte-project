@@ -2,14 +2,16 @@ import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import AllBookDisplayCard from "./AllBookDisplayCard";
 
+import arrow from "../../../public/Resources/arrow-forward.svg";
+
 const AllBooks = () => {
   const countBooks = useLoaderData();
-  console.log(countBooks);
+  // console.log(countBooks);
   const count = countBooks.length;
   const totalItems = count;
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const totalPages = Math.ceil(totalItems / itemsPerPage);
-  console.log(count, totalItems, itemsPerPage);
+  // console.log(count, totalItems, itemsPerPage);
   const pages = [...Array(totalPages).keys()];
   // console.log(pages);
 
@@ -40,9 +42,11 @@ const AllBooks = () => {
       .then((res) => res.json())
       .then((data) => {
         setBooks(data);
-        console.log(books);
+        // console.log(books);
       });
   }, [currentPage, itemsPerPage]);
+
+  const handleFilterAvailableBooks = () => {};
 
   return (
     <div>
@@ -50,6 +54,15 @@ const AllBooks = () => {
         <div>
           <div className="text-3xl bg-gradient-to-r from-pink-500 via-red-500 to-red-900 bg-clip-text text-transparent text-center font-black uppercase">
             Total Books: {totalItems}
+          </div>
+          <div
+            onClick={handleFilterAvailableBooks}
+            className="py-5 flex justify-center items-center"
+          >
+            <div className="flex gap-1 justify-center items-center py-2 px-5 bg-black text-slate-100 hover:text-white rounded-2xl shadow-xl">
+              <span className="text-sm">filter available books </span>
+              <img className="w-4" src={arrow} />{" "}
+            </div>
           </div>
           <div className="p-5 my-5 border rounded-xl  font-semibold text-xs">
             <label htmlFor="itemsPerPage">Showing Books Per Page = </label>

@@ -24,7 +24,7 @@ const AddBook = () => {
       ratings,
     };
 
-    console.log(newBook);
+    // console.log(newBook);
 
     // send data to the server
     fetch(
@@ -40,7 +40,7 @@ const AddBook = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data.insertedId) {
           Swal.fire({
             title: "Cool!",

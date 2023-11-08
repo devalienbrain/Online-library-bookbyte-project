@@ -58,7 +58,7 @@ const AuthProvider = ({ children }) => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
       });
   };
 
@@ -66,7 +66,7 @@ const AuthProvider = ({ children }) => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       const userEmail = currentUser?.email || user?.email;
       const loggedUser = { email: userEmail };
-      console.log("Current Active USER:", currentUser);
+      // console.log("Current Active USER:", currentUser);
       setUser(currentUser);
       setLoading(false);
       // IF USER EXISTS PROVIDE A TOKEN

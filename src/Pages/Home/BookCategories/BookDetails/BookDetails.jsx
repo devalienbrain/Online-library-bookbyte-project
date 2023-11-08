@@ -28,6 +28,20 @@ const BookDetails = () => {
 
   // HANDLE BORROW BTN CLICKED
   const handleBorrowedBook = (e) => {
+    fetch(
+      // "https://library-management-devalienbrain-crud-jwt-server.vercel.app/borrowedBooks",
+      "http://localhost:5000/borrowedBooks"
+    )
+      .then((res) => res.json())
+      .then((borrowedBooks) => {
+        console.log(borrowedBooks);
+        const bookToBorrow = borrowedBooks.find((book) => id === book._id);
+        if (bookToBorrow) {
+          alert("error");
+          return;
+        }
+      });
+
     e.preventDefault();
     const form = e.target;
     const userName = form.name.value;
@@ -47,7 +61,7 @@ const BookDetails = () => {
       borrowedDate: liveDateToday,
       originalId: id,
     };
-    console.log(bookBorrowInfo);
+    // console.log(bookBorrowInfo);
     // Info send to db
     fetch(
       // "https://library-management-devalienbrain-crud-jwt-server.vercel.app/borrowedBooks",
@@ -97,12 +111,12 @@ const BookDetails = () => {
             <div className="flex gap-1">
               <button
                 onClick={openModal}
-                className="px-4 py-2 border border-red-600 text-red-700  hover:text-red-600 rounded-lg drop-shadow-2xl text-sm font-semibold italic"
+                className="px-4 py-2 border border-red-600 text-red-700  hover:text-red-600 rounded-lg drop-shadow-2xl text-sm font-bold"
               >
                 Borrow The Book
               </button>
               <Link to={`/readABook/${id}`}>
-                <button className="px-4 py-1 border border-red-500 bg-red-600 text-white hover:bg-red-700 rounded-lg drop-shadow-2xl text-sm font-semibold italic">
+                <button className="px-4 py-2 border border-red-500 bg-red-600 text-white hover:bg-red-700 rounded-lg drop-shadow-2xl text-sm font-semibold">
                   READ
                 </button>
               </Link>
@@ -157,10 +171,7 @@ const BookDetails = () => {
                   required
                 />
                 <div className="form-control mt-6">
-                  <button
-                    // onSubmit={handleBookQuatityCount}
-                    className="btn bg-green-800 hover:bg-green-700 text-white"
-                  >
+                  <button className="btn bg-green-800 hover:bg-green-700 text-white">
                     submit
                   </button>
                 </div>

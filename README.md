@@ -6,7 +6,7 @@ Live website link: https://library-management-crud-jwt.web.app/
 
 The library management software named BookByte developed using React with CRUD (Create, Read, Update, Delete) functionality and JWT (JSON Web Tokens) for authentication and security.
 
-Here are ten key features about the software:
+Here are the key features about the software:
 
 - [User Authentication:] Implement JWT-based user authentication to ensure secure access to the software and restrict certain functionalities to authorized users.
 
