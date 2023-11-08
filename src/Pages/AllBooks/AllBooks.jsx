@@ -3,11 +3,11 @@ import { useLoaderData } from "react-router-dom";
 import AllBookDisplayCard from "./AllBookDisplayCard";
 
 import arrow from "../../../public/Resources/arrow-forward.svg";
+import axios from "axios";
 
 const AllBooks = () => {
   const countBooks = useLoaderData();
-  // console.log(countBooks);
-  const count = countBooks.length;
+  const { count } = countBooks;
   const totalItems = count;
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const totalPages = Math.ceil(totalItems / itemsPerPage);
@@ -35,16 +35,28 @@ const AllBooks = () => {
   };
   const [books, setBooks] = useState([]);
   useEffect(() => {
-    fetch(
-      // `https://library-management-devalienbrain-crud-jwt-server.vercel.app/allBooks?page=${currentPage}&size=${itemsPerPage}`
-      `http://localhost:5000/allBooks?page=${currentPage}&size=${itemsPerPage}`
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setBooks(data);
-        // console.log(books);
+    axios
+      .get(
+        // `https://library-management-devalienbrain-crud-jwt-server.vercel.app/allBooks?page=${currentPage}&size=${itemsPerPage}`
+        `http://localhost:5000/allBooks?page=${currentPage}&size=${itemsPerPage}`,
+        { withCredentials: true }
+      )
+      .then((res) => {
+        setBooks(res.data);
+        console.log(res.data);
       });
   }, [currentPage, itemsPerPage]);
+
+  // fetch(
+  //   // `https://library-management-devalienbrain-crud-jwt-server.vercel.app/allBooks?page=${currentPage}&size=${itemsPerPage}`
+  //   `http://localhost:5000/allBooks?page=${currentPage}&size=${itemsPerPage}`
+  // )
+  //   .then((res) => res.json())
+  //   .then((data) => {
+  //     setBooks(data);
+  //     // console.log(books);
+  //   });
+  // }, [currentPage, itemsPerPage]);
 
   const handleFilterAvailableBooks = () => {};
 
@@ -60,7 +72,7 @@ const AllBooks = () => {
             className="py-5 flex justify-center items-center"
           >
             <div className="flex gap-1 justify-center items-center py-2 px-5 bg-black text-slate-100 hover:text-white rounded-2xl shadow-xl">
-              <span className="text-sm">filter available books </span>
+              <span className="text-xs">filter available books </span>
               <img className="w-4" src={arrow} />{" "}
             </div>
           </div>

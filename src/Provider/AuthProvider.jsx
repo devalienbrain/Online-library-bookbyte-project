@@ -69,24 +69,25 @@ const AuthProvider = ({ children }) => {
       // console.log("Current Active USER:", currentUser);
       setUser(currentUser);
       setLoading(false);
+
       // IF USER EXISTS PROVIDE A TOKEN
-      // if (currentUser) {
-      //   axios
-      //     .post("http://localhost:3000/jwt", loggedUser, {
-      //       withCredentials: true,
-      //     })
-      //     .then((res) => {
-      //       console.log("Token Response: ", res.data);
-      //     });
-      // } else {
-      //   axios
-      //     .post("http://localhost:3000/logout", loggedUser, {
-      //       withCredentials: true,
-      //     })
-      //     .then((res) => {
-      //       console.log("Token Response For LogOut: ", res.data);
-      //     }); // Added a missing closing parenthesis and semicolon here
-      // }
+      if (currentUser) {
+        axios
+          .post("http://localhost:5000/jwt", loggedUser, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log("Token Response: ", res.data);
+          });
+      } else {
+        axios
+          .post("http://localhost:5000/logout", loggedUser, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            console.log("Token Response For LogOut: ", res.data);
+          });
+      }
     });
 
     return () => {

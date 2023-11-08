@@ -48,8 +48,8 @@ const routes = createBrowserRouter([
         ),
         loader: () =>
           fetch(
-            // "https://library-management-devalienbrain-crud-jwt-server.vercel.app/allBooks"
-            "http://localhost:5000/allBooks"
+            // "https://library-management-devalienbrain-crud-jwt-server.vercel.app/booksCount"
+            "http://localhost:5000/booksCount"
           ),
       },
       {
