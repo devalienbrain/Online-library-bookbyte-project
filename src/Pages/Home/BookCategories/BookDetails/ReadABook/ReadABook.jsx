@@ -6,7 +6,7 @@ const ReadABook = () => {
   // const navigate = useNavigate();
   const targetedBook = books.find((book) => id === book._id);
 
-  const { name, category, author, quantity, ratings, description } =
+  const { name, category, author, description } =
     targetedBook || {};
   return (
     <div className="container mx-auto min-h-screen flex justify-center items-center align-middle">

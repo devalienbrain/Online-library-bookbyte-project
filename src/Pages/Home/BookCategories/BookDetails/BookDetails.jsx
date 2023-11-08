@@ -1,20 +1,20 @@
-import { Link, useLoaderData, useNavigate, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../../Provider/AuthProvider";
 
 const BookDetails = () => {
-  const { user, handleBookQuatityCount } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const books = useLoaderData();
   const { id } = useParams();
   // const navigate = useNavigate();
   const targetedBook = books.find((book) => id === book._id);
 
-  const { _id, image, name, category, author, quantity, ratings, description } =
+  const { image, name, category, author, quantity, ratings, description } =
     targetedBook || {};
 
   // Handle Book Quantity
-  const [changedQuantity, setChangedQuantity] = useState(parseInt(quantity));
+  // const [changedQuantity, setChangedQuantity] = useState(parseInt(quantity));
   // console.log(changedQuantity, typeof changedQuantity);
 
   // Handle the modal
@@ -28,20 +28,6 @@ const BookDetails = () => {
 
   // HANDLE BORROW BTN CLICKED
   const handleBorrowedBook = (e) => {
-    fetch(
-      // "https://library-management-devalienbrain-crud-jwt-server.vercel.app/borrowedBooks",
-      "http://localhost:5000/borrowedBooks"
-    )
-      .then((res) => res.json())
-      .then((borrowedBooks) => {
-        console.log(borrowedBooks);
-        const bookToBorrow = borrowedBooks.find((book) => id === book._id);
-        if (bookToBorrow) {
-          alert("error");
-          return;
-        }
-      });
-
     e.preventDefault();
     const form = e.target;
     const userName = form.name.value;
@@ -59,13 +45,12 @@ const BookDetails = () => {
       userEmail,
       returnDate: date,
       borrowedDate: liveDateToday,
-      originalId: id,
     };
     // console.log(bookBorrowInfo);
     // Info send to db
     fetch(
-      // "https://library-management-devalienbrain-crud-jwt-server.vercel.app/borrowedBooks",
-      "http://localhost:5000/borrowedBooks",
+      "https://library-management-devalienbrain-crud-jwt-server.vercel.app/borrowedBooks",
+      // "http://localhost:5000/borrowedBooks",
       {
         method: "POST",
         headers: {
@@ -78,9 +63,6 @@ const BookDetails = () => {
       .then((data) => {
         console.log(data);
         if (data.insertedId) {
-          const newQuantity = changedQuantity - 1;
-          setChangedQuantity(newQuantity);
-          handleBookQuatityCount(changedQuantity, _id);
           Swal.fire({
             title: "Congrats!",
             text: "You Have Borrowed The Book Successfully",
@@ -111,10 +93,12 @@ const BookDetails = () => {
             <div className="flex gap-1">
               <button
                 onClick={openModal}
-                className="px-4 py-2 border border-red-600 text-red-700  hover:text-red-600 rounded-lg drop-shadow-2xl text-sm font-bold"
+                className="px-4 py-2 border border-red-600 text-red-700 hover:text-red-600 rounded-lg drop-shadow-2xl text-sm font-bold"
+                disabled={quantity <= 0}
               >
                 Borrow The Book
               </button>
+
               <Link to={`/readABook/${id}`}>
                 <button className="px-4 py-2 border border-red-500 bg-red-600 text-white hover:bg-red-700 rounded-lg drop-shadow-2xl text-sm font-semibold">
                   READ

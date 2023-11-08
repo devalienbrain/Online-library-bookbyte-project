@@ -1,13 +1,13 @@
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const UpdateTheBook = () => {
   const targetBookToUpdate = useLoaderData();
   console.log(targetBookToUpdate);
   const { _id, image, name, category, author, quantity, description, ratings } =
-    targetBookToUpdate;
+    targetBookToUpdate || {};
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleUpdateTheBook = (event) => {
     event.preventDefault();
@@ -36,8 +36,8 @@ const UpdateTheBook = () => {
 
     // send updated data to the server
     fetch(
-      // `https://library-management-devalienbrain-crud-jwt-server.vercel.app/${_id}`,
-      `http://localhost:5000/${_id}`,
+      `https://library-management-devalienbrain-crud-jwt-server.vercel.app/allBooks/${_id}`,
+      // `http://localhost:5000/allBooks/${_id}`,
       {
         method: "PUT",
         headers: {
@@ -56,7 +56,6 @@ const UpdateTheBook = () => {
             icon: "success",
             confirmButtonText: "Done",
           });
-          // navigate(`/brandedCars/${brand}`);
         }
       });
   };
@@ -74,7 +73,7 @@ const UpdateTheBook = () => {
         <div className="mb-8">
           {/* 3_category field */}
           <div className="form-control w-full">
-            <label for="category" className="label">
+            <label htmlFor="category" className="label">
               <span className="label-text text-lg font-bold">
                 Book Category
               </span>

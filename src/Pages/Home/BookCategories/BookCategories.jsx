@@ -5,8 +5,8 @@ const BookCategories = () => {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
     fetch(
-      // "https://library-management-devalienbrain-crud-jwt-server.vercel.app/bookCategories"
-      "http://localhost:5000/bookCategories"
+      "https://library-management-devalienbrain-crud-jwt-server.vercel.app/bookCategories"
+      // "http://localhost:5000/bookCategories"
     )
       .then((res) => res.json())
       .then((data) => {

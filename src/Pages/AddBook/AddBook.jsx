@@ -28,8 +28,8 @@ const AddBook = () => {
 
     // send data to the server
     fetch(
-      // "https://library-management-devalienbrain-crud-jwt-server.vercel.app/allBooks",
-      "http://localhost:5000/allBooks",
+      "https://library-management-devalienbrain-crud-jwt-server.vercel.app/allBooks",
+      // "http://localhost:5000/allBooks",
       {
         method: "POST",
         headers: {

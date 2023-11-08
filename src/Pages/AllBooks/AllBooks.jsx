@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import AllBookDisplayCard from "./AllBookDisplayCard";
 
 import arrow from "../../../public/Resources/arrow-forward.svg";
-import axios from "axios";
+// import axios from "axios";
 
 const AllBooks = () => {
   const countBooks = useLoaderData();
@@ -35,28 +35,16 @@ const AllBooks = () => {
   };
   const [books, setBooks] = useState([]);
   useEffect(() => {
-    axios
-      .get(
-        // `https://library-management-devalienbrain-crud-jwt-server.vercel.app/allBooks?page=${currentPage}&size=${itemsPerPage}`
-        `http://localhost:5000/allBooks?page=${currentPage}&size=${itemsPerPage}`,
-        { withCredentials: true }
-      )
-      .then((res) => {
-        setBooks(res.data);
-        console.log(res.data);
+    fetch(
+      `https://library-management-devalienbrain-crud-jwt-server.vercel.app/allBooks?page=${currentPage}&size=${itemsPerPage}`
+      // `http://localhost:5000/allBooks?page=${currentPage}&size=${itemsPerPage}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setBooks(data);
+        // console.log(books);
       });
   }, [currentPage, itemsPerPage]);
-
-  // fetch(
-  //   // `https://library-management-devalienbrain-crud-jwt-server.vercel.app/allBooks?page=${currentPage}&size=${itemsPerPage}`
-  //   `http://localhost:5000/allBooks?page=${currentPage}&size=${itemsPerPage}`
-  // )
-  //   .then((res) => res.json())
-  //   .then((data) => {
-  //     setBooks(data);
-  //     // console.log(books);
-  //   });
-  // }, [currentPage, itemsPerPage]);
 
   const handleFilterAvailableBooks = () => {};
 

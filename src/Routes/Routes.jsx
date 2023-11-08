@@ -48,8 +48,8 @@ const routes = createBrowserRouter([
         ),
         loader: () =>
           fetch(
-            // "https://library-management-devalienbrain-crud-jwt-server.vercel.app/booksCount"
-            "http://localhost:5000/booksCount"
+            "https://library-management-devalienbrain-crud-jwt-server.vercel.app/booksCount"
+            // "http://localhost:5000/booksCount"
           ),
       },
       {
@@ -57,8 +57,8 @@ const routes = createBrowserRouter([
         element: <BooksByCategory></BooksByCategory>,
         loader: () =>
           fetch(
-            // "https://library-management-devalienbrain-crud-jwt-server.vercel.app/allBooks"
-            "http://localhost:5000/allBooks"
+            "https://library-management-devalienbrain-crud-jwt-server.vercel.app/allBooks"
+            // "http://localhost:5000/allBooks"
           ),
       },
       {
@@ -70,8 +70,8 @@ const routes = createBrowserRouter([
         ),
         loader: () =>
           fetch(
-            // "https://library-management-devalienbrain-crud-jwt-server.vercel.app/allBooks"
-            "http://localhost:5000/allBooks"
+            "https://library-management-devalienbrain-crud-jwt-server.vercel.app/allBooks"
+            // "http://localhost:5000/allBooks"
           ),
       },
       {
@@ -83,8 +83,8 @@ const routes = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            // `https://library-management-devalienbrain-crud-jwt-server.vercel.app/allBooks/${params.id}`
-            `http://localhost:5000/allBooks/${params.id}`
+            `https://library-management-devalienbrain-crud-jwt-server.vercel.app/allBooks/${params.id}`
+            // `http://localhost:5000/allBooks/${params.id}`
           ),
       },
       {
@@ -104,8 +104,8 @@ const routes = createBrowserRouter([
         ),
         loader: () =>
           fetch(
-            // "https://library-management-devalienbrain-crud-jwt-server.vercel.app/allBooks"
-            "http://localhost:5000/allBooks"
+            "https://library-management-devalienbrain-crud-jwt-server.vercel.app/allBooks"
+            // "http://localhost:5000/allBooks"
           ),
       },
     ],
