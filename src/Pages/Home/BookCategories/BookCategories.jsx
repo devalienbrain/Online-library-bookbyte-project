@@ -4,7 +4,10 @@ import BookCategoryCard from "./BookCategoryCard";
 const BookCategories = () => {
   const [categories, setCategories] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/bookCategories")
+    fetch(
+      // "https://library-management-devalienbrain-crud-jwt-server.vercel.app/bookCategories"
+      "http://localhost:5000/bookCategories"
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);

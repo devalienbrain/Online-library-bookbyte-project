@@ -34,6 +34,7 @@ const AllBooks = () => {
   const [books, setBooks] = useState([]);
   useEffect(() => {
     fetch(
+      // `https://library-management-devalienbrain-crud-jwt-server.vercel.app/allBooks?page=${currentPage}&size=${itemsPerPage}`
       `http://localhost:5000/allBooks?page=${currentPage}&size=${itemsPerPage}`
     )
       .then((res) => res.json())

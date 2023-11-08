@@ -2,7 +2,7 @@ import Rating from "react-rating";
 import { Link } from "react-router-dom";
 
 const AllBookDisplayCard = ({ singleBook }) => {
-  const { _id, image, name, author, category, ratings } = singleBook;
+  const { _id, image, name, author, category, ratings, quantity } = singleBook;
   return (
     <div className="card w-96 bg-base-100 border border-blue-100">
       <h2 className="card-title mx-auto p-3 bg-gradient-to-r from-blue-500 to-red-900 bg-clip-text text-transparent">
@@ -18,6 +18,7 @@ const AllBookDisplayCard = ({ singleBook }) => {
         <p className="font-bold bg-gradient-to-r from-pink-500 via-red-500 to-red-900 bg-clip-text text-transparent">
           {category}
         </p>
+        <p>Book Quantity = {quantity}</p>
         <div>
           <Rating
             initialRating={ratings}

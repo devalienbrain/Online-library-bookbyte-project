@@ -27,13 +27,17 @@ const AddBook = () => {
     console.log(newBook);
 
     // send data to the server
-    fetch("http://localhost:5000/allBooks", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(newBook),
-    })
+    fetch(
+      // "https://library-management-devalienbrain-crud-jwt-server.vercel.app/allBooks",
+      "http://localhost:5000/allBooks",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newBook),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -59,7 +63,7 @@ const AddBook = () => {
         <div className="mb-8">
           {/* 3_category field */}
           <div className="form-control w-full">
-            <label for="category" className="label">
+            <label htmlFor="category" className="label">
               <span className="label-text text-lg font-bold">
                 Book Category
               </span>

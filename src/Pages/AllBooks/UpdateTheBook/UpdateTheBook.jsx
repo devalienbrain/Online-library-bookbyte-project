@@ -35,13 +35,17 @@ const UpdateTheBook = () => {
     console.log(updatedBook);
 
     // send updated data to the server
-    fetch(`http://localhost:5000/allBooks/${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updatedBook),
-    })
+    fetch(
+      // `https://library-management-devalienbrain-crud-jwt-server.vercel.app/${_id}`,
+      `http://localhost:5000/${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updatedBook),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -71,9 +75,16 @@ const UpdateTheBook = () => {
           {/* 3_category field */}
           <div className="form-control w-full">
             <label for="category" className="label">
-              <span className="label-text text-lg font-bold">Book Category</span>
+              <span className="label-text text-lg font-bold">
+                Book Category
+              </span>
             </label>
-            <select id="category" name="category" className="input input-bordered  rounded-md drop-shadow-lg w-full" defaultValue={category}>
+            <select
+              id="category"
+              name="category"
+              className="input input-bordered  rounded-md drop-shadow-lg w-full"
+              defaultValue={category}
+            >
               <option value="Biography">Biography</option>
               <option value="Children">Children</option>
               <option value="Law">Law</option>

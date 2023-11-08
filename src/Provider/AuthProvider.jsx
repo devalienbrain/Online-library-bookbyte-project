@@ -44,6 +44,24 @@ const AuthProvider = ({ children }) => {
     return signOut(auth);
   };
 
+  const handleBookQuatityCount = (changedQuantity, id) => {
+    fetch(
+      // `https://library-management-devalienbrain-crud-jwt-server.vercel.app/allBooks/${id}`,
+      `http://localhost:5000/allBooks/${id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({ quantity: changedQuantity }),
+      }
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
+
   useEffect(() => {
     const unSubscribe = onAuthStateChanged(auth, (currentUser) => {
       const userEmail = currentUser?.email || user?.email;
@@ -84,6 +102,7 @@ const AuthProvider = ({ children }) => {
     loginGoogle,
     loginGithub,
     logOut,
+    handleBookQuatityCount,
   };
 
   return (

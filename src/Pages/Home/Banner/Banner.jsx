@@ -10,10 +10,7 @@ const Banner = () => {
       }}
     >
       <div className="hero-overlay bg-opacity-10">
-        <img
-          className="w-full h-full"
-          src="../../../../public/Resources/gradient.png"
-        />
+        <img className="w-full h-full" src="/Resources/gradient.png" />
       </div>
       <div className="hero-content text-center text-neutral-content">
         <div>

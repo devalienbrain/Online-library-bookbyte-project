@@ -1,36 +1,22 @@
-import { useLoaderData, useNavigate, useParams } from "react-router-dom";
+import { Link, useLoaderData, useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../../Provider/AuthProvider";
 
 const BookDetails = () => {
-  const { user } = useContext(AuthContext);
+  const { user, handleBookQuatityCount } = useContext(AuthContext);
   const books = useLoaderData();
   const { id } = useParams();
   // const navigate = useNavigate();
   const targetedBook = books.find((book) => id === book._id);
 
-  const { image, name, category, author, quantity, ratings, description } =
+  const { _id, image, name, category, author, quantity, ratings, description } =
     targetedBook || {};
 
   // Handle Book Quantity
   const [changedQuantity, setChangedQuantity] = useState(parseInt(quantity));
-  console.log(changedQuantity, typeof changedQuantity);
-  const handleBookQuatityCount = () => {
-    const newQuantity = changedQuantity - 1;
-    setChangedQuantity(newQuantity);
-    fetch(`http://localhost:5000/allBooks/${id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({ quantity: changedQuantity }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
-  };
+  // console.log(changedQuantity, typeof changedQuantity);
+
   // Handle the modal
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = () => {
@@ -59,21 +45,28 @@ const BookDetails = () => {
       userEmail,
       returnDate: date,
       borrowedDate: liveDateToday,
+      originalId: id,
     };
     console.log(bookBorrowInfo);
     // Info send to db
-    fetch("http://localhost:5000/borrowedBooks", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(bookBorrowInfo),
-    })
+    fetch(
+      // "https://library-management-devalienbrain-crud-jwt-server.vercel.app/borrowedBooks",
+      "http://localhost:5000/borrowedBooks",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(bookBorrowInfo),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
         if (data.insertedId) {
-          handleBookQuatityCount();
+          const newQuantity = changedQuantity - 1;
+          setChangedQuantity(newQuantity);
+          handleBookQuatityCount(changedQuantity, _id);
           Swal.fire({
             title: "Congrats!",
             text: "You Have Borrowed The Book Successfully",
@@ -108,9 +101,11 @@ const BookDetails = () => {
               >
                 Borrow The Book
               </button>
-              <button className="px-4 py-1 border border-red-500 bg-red-600 text-white hover:bg-red-700 rounded-lg drop-shadow-2xl text-sm font-semibold italic">
-                READ
-              </button>
+              <Link to={`/readABook/${id}`}>
+                <button className="px-4 py-1 border border-red-500 bg-red-600 text-white hover:bg-red-700 rounded-lg drop-shadow-2xl text-sm font-semibold italic">
+                  READ
+                </button>
+              </Link>
             </div>
           </div>
         </div>

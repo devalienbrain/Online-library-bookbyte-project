@@ -33,7 +33,7 @@ const Login = () => {
         // Steps to get access token from server side
         const user = { email };
         axios
-          .post("http://localhost:3000/jwt", user, {
+          .post("http://localhost:5000/jwt", user, {
             withCredentials: true,
           })
           .then((res) => {

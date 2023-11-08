@@ -1,4 +1,8 @@
-const BorrowedBookCard = ({ borrowedBook, handleReturnABook }) => {
+const BorrowedBookCard = ({
+  borrowedBook,
+  handleReturnABook,
+  setOriginalId,
+}) => {
   const {
     _id,
     image,
@@ -8,7 +12,10 @@ const BorrowedBookCard = ({ borrowedBook, handleReturnABook }) => {
     userEmail,
     returnDate,
     borrowedDate,
+    originalId,
   } = borrowedBook;
+  console.log(originalId);
+  setOriginalId(originalId);
   return (
     <>
       <div className="flex flex-col md:flex-row gap-12 items-center p-5 border border-black mx-auto rounded-xl hover:text-red-700">
