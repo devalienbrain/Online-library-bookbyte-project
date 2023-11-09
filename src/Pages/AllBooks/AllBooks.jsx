@@ -3,6 +3,7 @@ import { useLoaderData } from "react-router-dom";
 import AllBookDisplayCard from "./AllBookDisplayCard";
 
 import arrow from "../../../public/Resources/arrow-forward.svg";
+import Swal from "sweetalert2";
 // import axios from "axios";
 
 const AllBooks = () => {
@@ -46,23 +47,42 @@ const AllBooks = () => {
       });
   }, [currentPage, itemsPerPage]);
 
-  const handleFilterAvailableBooks = () => {};
+  const handleFilterAvailableBooks = () => {
+    const filteredBooks = books.filter((book) => book.quantity > 0);
+    // console.log(filteredBooks);
+    if (filteredBooks) {
+      Swal.fire({
+        title: "Filtered!",
+        text: "Showing books with count 1 or more",
+        confirmButtonText: "Close",
+      });
+    } else {
+      Swal.fire({
+        title: "Ooops!",
+        text: "No book to filtered",
+        confirmButtonText: "Close",
+      });
+    }
+    setBooks(filteredBooks);
+  };
 
   return (
     <div>
       <div className="flex justify-center items-center p-10">
         <div>
           <div className="text-3xl bg-gradient-to-r from-pink-500 via-red-500 to-red-900 bg-clip-text text-transparent text-center font-black uppercase">
-            Total Books: {totalItems}
+            LIST OF ALL BOOKS
           </div>
           <div
             onClick={handleFilterAvailableBooks}
             className="py-5 flex justify-center items-center"
           >
-            <div className="flex gap-1 justify-center items-center py-2 px-5 bg-black text-slate-100 hover:text-white rounded-2xl shadow-xl">
-              <span className="text-xs">filter available books </span>
-              <img className="w-4" src={arrow} />{" "}
-            </div>
+            <button className="flex gap-1 justify-center items-center py-3 px-6 bg-black text-slate-100 hover:text-white rounded-3xl shadow-xl">
+              <span className="text-sm italic font-semibold">
+                filter available books{" "}
+              </span>
+              <img className="w-6" src={arrow} />{" "}
+            </button>
           </div>
           <div className="p-5 my-5 border rounded-xl  font-semibold text-xs">
             <label htmlFor="itemsPerPage">Showing Books Per Page = </label>

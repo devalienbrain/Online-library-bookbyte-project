@@ -8,7 +8,10 @@ const BorrowedBookCard = ({ borrowedBook, handleReturnABook }) => {
     userEmail,
     returnDate,
     borrowedDate,
+    originalBookId,
   } = borrowedBook;
+  // console.log(borrowedBook);
+  // console.log(originalBookId);
   return (
     <>
       <div className="flex flex-col md:flex-row gap-12 items-center p-5 border border-black mx-auto rounded-xl hover:text-red-700">
@@ -37,7 +40,7 @@ const BorrowedBookCard = ({ borrowedBook, handleReturnABook }) => {
         </div>
         <div>
           <button
-            onClick={() => handleReturnABook(_id)}
+            onClick={() => handleReturnABook(_id, originalBookId)}
             className="py-3 px-4 rounded-lg shadow-2xl text-xs text-white bg-gradient-to-r from-lime-400 to-green-700 hover:bg-gradient-to-tr"
           >
             RETURN THE BOOK

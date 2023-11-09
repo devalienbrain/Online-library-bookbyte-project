@@ -17,30 +17,17 @@ const BooksBorrowed = () => {
       // `http://localhost:5000/borrowedBooks?email=${user?.email}`
     )
       .then((res) => res.json())
-      .then((data) => setBorrowedBooks(data));
+      .then((data) => {
+        setBorrowedBooks(data);
+        // console.log(data);
+      });
     // axios.get(url, { withCredentials: true }).then((res) => {
     //   setBookings(res.data);
     // });
   }, [user?.email]);
 
-  // const [originalId, setOriginalId] = useState("");
-  // const [quantity, setQuantity] = useState(0);
-  // const handleCountIncreased = (originalId) => {
-  //   // console.log(id);
-  //   fetch(
-  //     // `https://library-management-devalienbrain-crud-jwt-server.vercel.app/allBooks/${originalId}`
-  //     `http://localhost:5000/allBooks/${originalId}`
-  //   )
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setQuantity(data?.quantity);
-  //       console.log(data?.quantity, typeof data.quantity);
-  //     });
-  //   const newQuantity = quantity + 1;
-  //   handleBookQuatityCount(originalId, newQuantity);
-  // };
-
-  const handleReturnABook = (id) => {
+  const handleReturnABook = (id, originalBookId) => {
+    console.log(originalBookId);
     Swal.fire({
       title: "Want To Return The Book, Sure?",
       icon: "warning",
@@ -59,8 +46,45 @@ const BooksBorrowed = () => {
         )
           .then((res) => res.json())
           .then((data) => {
-            // console.log(data);
             if (data.deletedCount > 0) {
+              // console.log(originalBookId);
+              if (!originalBookId) {
+                return;
+              }
+              fetch(
+                `https://library-management-devalienbrain-crud-jwt-server.vercel.app/allBooks/${originalBookId}`
+                // `http://localhost:5000/allBooks/${originalBookId}`
+              )
+                .then((res) => res.json())
+                .then((data) => {
+                  const recentQuantity = parseInt(data?.quantity);
+                  const changedQuantity = recentQuantity + 1;
+                  const newQuantity = { quantity: changedQuantity };
+
+                  // Now send the PATCH request to update the quantity
+                  fetch(
+                    `https://library-management-devalienbrain-crud-jwt-server.vercel.app/allBooks/${originalBookId}`,
+                    // `http://localhost:5000/allBooks/${originalBookId}`,
+                    {
+                      method: "PATCH",
+                      headers: {
+                        "Content-Type": "application/json",
+                      },
+                      body: JSON.stringify(newQuantity),
+                    }
+                  )
+                    .then((res) => res.json())
+                    .then((data) => {
+                      console.log(data);
+                    })
+                    .catch((error) => {
+                      console.error("Error updating book quantity:", error);
+                    });
+                })
+                .catch((error) => {
+                  console.error("Error fetching book quantity:", error);
+                });
+
               Swal.fire({
                 title: "Done!",
                 text: "The Book Has Been Returned!",

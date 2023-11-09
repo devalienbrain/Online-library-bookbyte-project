@@ -9,13 +9,13 @@ const BookDetails = () => {
   const { id } = useParams();
   // const navigate = useNavigate();
   const targetedBook = books.find((book) => id === book._id);
-
-  const { image, name, category, author, quantity, ratings, description } =
+  // console.log(targetedBook);
+  const { image, name, category, author, quantity, ratings, description, _id } =
     targetedBook || {};
+  const [showQuantity, setShowQuantity] = useState(parseInt(quantity));
 
   // Handle Book Quantity
-  // const [changedQuantity, setChangedQuantity] = useState(parseInt(quantity));
-  // console.log(changedQuantity, typeof changedQuantity);
+  const recentQuantity = parseInt(quantity);
 
   // Handle the modal
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -27,7 +27,38 @@ const BookDetails = () => {
   };
 
   // HANDLE BORROW BTN CLICKED
+  const [borrowedBooks, setBorrowedBooks] = useState([]);
   const handleBorrowedBook = (e) => {
+    if (quantity <= 0) {
+      return;
+    }
+    // Check repeat a book start
+
+    fetch(
+      `https://library-management-devalienbrain-crud-jwt-server.vercel.app/borrowedBooks?email=${user?.email}`
+      // `http://localhost:5000/borrowedBooks?email=${user?.email}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setBorrowedBooks(data);
+        console.log(data);
+      });
+    const repeatChecker = borrowedBooks.find(
+      (borrowedBook) => id === borrowedBook.originalBookId
+    );
+    if (repeatChecker) {
+      Swal.fire({
+        title: "Oops!",
+        text: "You Already Borrowed The Book!",
+        icon: "error",
+        confirmButtonText: "Close",
+      });
+
+      setIsModalOpen(false);
+      return;
+    }
+    // Check repeat a book Ends
+
     e.preventDefault();
     const form = e.target;
     const userName = form.name.value;
@@ -37,7 +68,7 @@ const BookDetails = () => {
     const liveDateToday = new Date();
 
     const bookBorrowInfo = {
-      // service_id: _id,
+      originalBookId: _id,
       image,
       bookName: name,
       category,
@@ -46,7 +77,7 @@ const BookDetails = () => {
       returnDate: date,
       borrowedDate: liveDateToday,
     };
-    // console.log(bookBorrowInfo);
+    console.log(bookBorrowInfo);
     // Info send to db
     fetch(
       "https://library-management-devalienbrain-crud-jwt-server.vercel.app/borrowedBooks",
@@ -63,6 +94,27 @@ const BookDetails = () => {
       .then((data) => {
         console.log(data);
         if (data.insertedId) {
+          // To count update
+          const changedQuantity = recentQuantity - 1;
+          setShowQuantity(changedQuantity);
+          const newQuantity = { quantity: changedQuantity };
+
+          fetch(
+            `https://library-management-devalienbrain-crud-jwt-server.vercel.app/allBooks/${id}`,
+            // `http://localhost:5000/allBooks/${id}`,
+            {
+              method: "PATCH",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(newQuantity),
+            }
+          )
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+            });
+
           Swal.fire({
             title: "Congrats!",
             text: "You Have Borrowed The Book Successfully",
@@ -71,6 +123,7 @@ const BookDetails = () => {
           });
         }
       });
+    setIsModalOpen(false);
   };
 
   return (
@@ -86,14 +139,16 @@ const BookDetails = () => {
             <p>
               About the book: <br /> {description}
             </p>
-            <h1>Quantity of the book = {quantity} </h1>
+            <h1>Quantity of the book = {showQuantity} </h1>
             <h1>Ratings: {ratings} / 5 </h1>
             <h2 className="card-title">{category}</h2>
 
             <div className="flex gap-1">
               <button
                 onClick={openModal}
-                className="px-4 py-2 border border-red-600 text-red-700 hover:text-red-600 rounded-lg drop-shadow-2xl text-sm font-bold"
+                className={`px-4 py-2 border border-red-600 ${
+                  quantity <= 0 ? "text-slate-200" : "text-red-700"
+                } hover:text-red-600 rounded-lg drop-shadow-2xl text-sm font-bold`}
                 disabled={quantity <= 0}
               >
                 Borrow The Book
@@ -155,7 +210,10 @@ const BookDetails = () => {
                   required
                 />
                 <div className="form-control mt-6">
-                  <button className="btn bg-green-800 hover:bg-green-700 text-white">
+                  <button
+                    className="btn bg-green-800 hover:bg-green-700 text-white"
+                    disabled={quantity <= 0}
+                  >
                     submit
                   </button>
                 </div>
